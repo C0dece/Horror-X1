@@ -130,7 +130,7 @@ namespace PlayerController
 
         public void JumpModule()
         {
-            if (playerInput.jump.WasPerformedThisFrame() && readyToJump && isGrounded)
+            if (playerInput.jump.IsPressed() && readyToJump && isGrounded)
             {             
                 OnJump();
                 readyToJump = false;
@@ -149,6 +149,7 @@ namespace PlayerController
         {         
             moveDirection = head.forward * verticalInput + head.right * horizontalInput;
 
+            /*
             if (OnSlope() && !exitingSlope)
             {
                 rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
@@ -156,6 +157,7 @@ namespace PlayerController
                 if (rb.velocity.y > 0)
                     rb.AddForce(Vector3.down * 80f, ForceMode.Force);
             }
+            */
 
             if(isCrouch)
             {
@@ -174,7 +176,7 @@ namespace PlayerController
 
             rb.AddForce(Physics.gravity * gravityScale, ForceMode.Acceleration);
 
-            rb.useGravity = !OnSlope();
+            //rb.useGravity = !OnSlope();
         }
 
         public void RBDrag()
@@ -187,13 +189,14 @@ namespace PlayerController
 
         private void SpeedControl()
         {        
+            /*
             if (OnSlope() && !exitingSlope)
             {
                 if (rb.velocity.magnitude > moveSpeed)
                     rb.velocity = rb.velocity.normalized * moveSpeed;
             }
             else
-            {  
+            {  */
                 Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                
                 if (flatVel.magnitude > moveSpeed)
@@ -201,7 +204,7 @@ namespace PlayerController
                     Vector3 limitedVel = flatVel.normalized * moveSpeed;
                     rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
                 }
-            }           
+           // }           
         }
 
         private IEnumerator SmoothlyLerpMoveSpeed()

@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 7983760780356017171}
   - component: {fileID: 7209002244352906571}
   - component: {fileID: 2974030048425116141}
+  - component: {fileID: 4863358955206482585}
   m_Layer: 2
   m_Name: FirstPersonController
   m_TagString: Untagged
@@ -465,12 +466,12 @@ MonoBehaviour:
   playerCamera: {fileID: 6628442857874496880}
   moveSpeed: 5
   groundDrag: 5
-  jumpForce: 5
+  jumpForce: 10
   jumpCooldown: 0.5
   airMultiplier: 1
   gravityScale: 2
   isGrounded: 0
-  groundDistance: 0.55
+  groundDistance: 0.41
   groundRadius: 0.25
   ignoreLayerMask:
     serializedVersion: 2
@@ -487,11 +488,32 @@ MonoBehaviour:
   walkSpeed: 5
   crouchSpeed: 3
   crouchUpRadius: 0.5
-  crouchUpDistance: 0.5
+  crouchUpDistance: 1.4
   crouchClamp: 1
   capsuleCollider: {fileID: 5328163384782136072}
   crouchYScale: 0.5
   startYScale: 1
+--- !u!135 &4863358955206482585
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833464871575542763}
+  m_Material: {fileID: 13400000, guid: 7bcdd8389b11a3f40af9b550572b216c, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.45
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &6030012616610784245
 GameObject:
   m_ObjectHideFlags: 0
